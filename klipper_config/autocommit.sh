@@ -52,7 +52,7 @@ grab_version(){
   if [ ! -z "$z_calibration_folder" ]; then
     cd "$z_calibration_folder"
     zcalibration_commit=$(git rev-parse --short=7 HEAD)
-    m2="Z_Calibration on commit: $zcalibration_commit"
+    m5="Z_Calibration on commit: $zcalibration_commit"
     cd ..
   fi
 }
