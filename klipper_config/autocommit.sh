@@ -19,6 +19,8 @@ moonraker_folder=~/moonraker
 ### Path to your Fluidd folder, by default that is '~/fluidd'
 fluidd_folder=~/fluidd
 
+z_calibration_folder=~/klipper_z_calibration
+
 #####################################################################
 #####################################################################
 
@@ -46,6 +48,12 @@ grab_version(){
   if [ ! -z "$fluidd_folder" ]; then
     fluidd_ver=$(head -n 1 $fluidd_folder/.version)
     m4="Fluidd version: $fluidd_ver"
+  fi
+  if [ ! -z "$z_calibration_folder" ]; then
+    cd "$z_calibration_folder"
+    zcalibration_commit=$(git rev-parse --short=7 HEAD)
+    m2="Z_Calibration on commit: $zcalibration_commit"
+    cd ..
   fi
 }
 
