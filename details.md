@@ -7,7 +7,7 @@ Just a few things for me to keep for future reference.
 A/B Belts: Around 78 inches.
 
 
-Old MGN12 Gantry (No Carriage)
+Old MGN12 Gantry
 775g
 
 New Gantry MGN9 CF
