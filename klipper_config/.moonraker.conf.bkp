@@ -1,55 +1,48 @@
 [server]
-host: 0.0.0.0
-port: 7125
-enable_debug_logging: False
-config_path: /home/pi/klipper_config
-temperature_store_size: 600
-gcode_store_size: 1000
+host = 0.0.0.0
+port = 7125
+
+[data_store]
+temperature_store_size = 600
+gcode_store_size = 1000
 
 [authorization]
-#enabled: True
-cors_domains:
-  *://app.fluidd.xyz
-  *://my.mainsail.xyz
-  *://molten-spaghetti.hlavac.me
-  *:7136  #<--Allow PrettyGCode (port 7136) on all domains
-  *:7125
+cors_domains = 
+	*://app.fluidd.xyz
+	*://my.mainsail.xyz
+	*://molten-spaghetti.hlavac.me
+	*:7136
+	*:7125
+trusted_clients = 
+	100.100.135.111
+	100.89.101.65
+	100.0.0.0/8
+	100.124.149.20
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.1.0/24
+	192.168.86.0/24
+	FE80::/10
+	::1/128
 
-
-trusted_clients:
- 100.100.135.111
- 100.89.101.65
- 100.0.0.0/8
- 100.124.149.20
- 10.0.0.0/8
- 127.0.0.0/8
- 169.254.0.0/16
- 172.16.0.0/12
- 192.168.1.0/24
- 192.168.86.0/24
- FE80::/10
- ::1/128
-
-# enables support for slicer uploads via partial Octoprint API impl
 [octoprint_compat]
-flip_h: true
-flip_v: true
-
-#[update_manager]
-#[update_manager client fluidd]
-#type: web
-#repo: cadriel/fluidd
-#path: ~/fluidd
+flip_h = true
+flip_v = true
 
 [update_manager client z_calibration]
-type: git_repo
-path: /home/pi/klipper_z_calibration
-origin: https://github.com/protoloft/klipper_z_calibration.git
-install_script: install.sh
+type = git_repo
+path = /home/pi/klipper_z_calibration
+origin = https://github.com/protoloft/klipper_z_calibration.git
+install_script = install.sh
+is_system_service = False
 
 [update_manager client frame_expansion]
-type: git_repo
-path: /home/pi/klipper_frame_expansion_comp
-primary_branch: main
-origin: https://github.com/alchemyEngine/klipper_frame_expansion_comp.git
-install_script: install.sh
+type = git_repo
+path = /home/pi/klipper_frame_expansion_comp
+primary_branch = main
+origin = https://github.com/alchemyEngine/klipper_frame_expansion_comp.git
+install_script = install.sh
+is_system_service = False
+
